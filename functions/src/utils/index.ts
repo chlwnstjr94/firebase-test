@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 // import validator from 'validator'
 import * as FileType from 'file-type'
 
-export async function saveFile(base64: string, bucketName = 'images') {
+export async function saveFile(base64: string, bucketName = 'my-project-ff475-images') {
 // 스토리지에 파일 저장
   const bucket = admin.storage().bucket(bucketName)
 

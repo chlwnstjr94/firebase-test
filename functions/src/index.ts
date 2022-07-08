@@ -16,8 +16,16 @@ import todo from './routes/todo'
 const app = express()
 app.use(express.json())
 // 모든 요청 허용
-app.use(cors())
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://my-project-ff475.web.app',
+    'https://my-project-ff475.firebaseapp.com'
+  ]
+}))
 app.use('/todo', todo)
 
-export const api = functions.https.onRequest(app)
+export const api = functions
+  .region('asia-northeast3')
+  .https.onRequest(app)
 // http://localhost:5001/my-project-ff475/us-central1/api/todo
